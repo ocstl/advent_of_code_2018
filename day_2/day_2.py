@@ -31,6 +31,8 @@ def main(args):
     second_answer = ''.join(c1 for (c1, c2) in zip(similar_ids[0], similar_ids[1]) if c1 == c2)
     print("The second answer is " + second_answer)
 
+    return 0
+
 
 if __name__ == '__main__':
     import sys
