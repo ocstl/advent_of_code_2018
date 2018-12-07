@@ -72,9 +72,11 @@ class Map:
 
             return False
 
-        # Unlikely to find a point beyond the maximum dimensions.
+        # Look beyond the current dimensions to be sure to catch them all.
         (min_x, min_y), (max_x, max_y) = self.get_dimensions()
-        return sum(map(test_distance, itertools.product(range(min_x, max_x), range(min_y, max_y))))
+        offset = 1 + max_distance // len(self.points)
+        return sum(map(test_distance, itertools.product(range(min_x-offset, max_x+offset+1),
+                                                        range(min_y-offset, max_y+offset+1))))
 
 
 def main(_args):
