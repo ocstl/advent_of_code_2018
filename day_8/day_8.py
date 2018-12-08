@@ -46,7 +46,7 @@ class Node:
         if self.nbr_children == 0:
             return sum(self.metadata)
         else:
-            return sum(self.children[name-1].get_value() for name in self.metadata if name <= self.nbr_children)
+            return sum(self.children[name-1].get_value() for name in self.metadata if 0 < name <= self.nbr_children)
 
 
 def main(_args):
